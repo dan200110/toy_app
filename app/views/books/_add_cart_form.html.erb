@@ -1,0 +1,32 @@
+<%= form_with url: carts_path(id: @book.id), method: :post do |f| %>
+  <div class="product-view-quantity-box">
+    <label for="qty">Số lượng: </label>
+    <div class="product-view-quantity-box-block">
+      <a class="btn-subtract-qty">
+        <img style="width: 12px; height: auto;"
+                                            src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_minus2x.png">
+      </a>
+      <%= f.number_field :quantily, value: 1,
+      max: 50, min: 0, class: "form-control" %>
+      <a class="btn-add-qty">
+        <img style=" width: 12px; height: auto;"
+                                        src="https://cdn0.fahasa.com/skin/frontend/ma_vanese/fahasa/images/ico_plus2x.png">
+      </a>
+    </div>
+  </div>
+  <div class="product_view_add_box">
+    <button class="btn-cart-to-cart">
+      <i class="fa fa-cart-plus" aria-hidden="true"></i>
+      Thêm Vào Giỏ Hàng</button>
+    <%= f.submit "Mua ngay",
+    class: "btn-buy-now" %>
+  </div>
+  <%# <div class="input-group">
+    <%= f.label :quantily, class: "input-group-addon"
+    <%= f.number_field :quantily, value: 1,
+      max: 50, min: 0, class: "form-control"
+  </div>
+  <br>
+  <%= f.submit t(".add_cart_text"),
+    class: "form-control btn btn-success" %>
+<% end %>

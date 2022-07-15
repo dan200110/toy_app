@@ -1,6 +1,224 @@
-<h1>Editing User</h1>
-
-<%= render 'form', user: @user %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<div class="container">
+  <div class="grid_new">
+    <div class="grid__row">
+      <div class="grid-column-2x">
+        <div class="user-info">
+          <div class="user-info-img">
+            <img src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png" alt="">
+          </div>
+          <div class="user-info-name">
+            <p>
+            </p>
+            <span>
+              <i class="fa fa-pencil" aria-hidden="true"></i>
+              Sửa Hồ Sơ
+            </span>
+          </div>
+        </div>
+        <div class="user-info-change-account">
+          <div class="stardust-account">
+            <div class="myaccount same-info-account">
+              <img src="https://cf.shopee.vn/file/ba61750a46794d8847c3f463c5e71cc4" alt="">
+              <span>Tài Khoản Của Tôi</span>
+            </div>
+            <div class="user-file">
+              <span>Hồ sơ</span>
+            </div>
+            <div class="user-address">
+              <span>Địa chỉ</span>
+            </div>
+            <div class="user-change-pass">
+              <span>Đổi Mật Khẩu</span>
+            </div>
+          </div>
+        </div>
+        <div class="purchase-order same-info-account">
+          <img src="https://cf.shopee.vn/file/f0049e9df4e536bc3e7f140d071e9078" alt="">
+          <span>Đơn Mua</span>
+        </div>
+        <div class="user-account-notify same-info-account">
+          <img src="https://cf.shopee.vn/file/e10a43b53ec8605f4829da5618e0717c" alt="">
+          <span>Thông Báo</span>
+        </div>
+        <div class="user-account-voucher same-info-account">
+          <img src="https://cf.shopee.vn/file/84feaa363ce325071c0a66d3c9a88748" alt="">
+          <span>Kho Voucher</span>
+        </div>
+      </div>
+      <div class="grid-column-10x">
+        <!-- hồ sơ -->
+        <div class="user-brief">
+          <div class="user-my-brief">
+            <h1>Hồ Sơ Của Tôi</h1>
+            <span>Quản lí thông tin hồ sơ để bảo mật tài khoản</span>
+          </div>
+          <div class="user-form-brief">
+            <div class="user-form-brief-text">
+              <form action="">
+                <div class="same-type-form">
+                  <div class="user-login-name user-same-name">
+                    <label for="">Tên Đăng Nhập</label>
+                  </div>
+                </div>
+                <div class="same-type-form">
+                  <div class="user-input-name user-same-name">
+                    <div class="user-input-name-label">
+                      <label>Tên</label>
+                    </div>
+                    <div class="user-input-name-input">
+                      <div class="input-with-validator-wrapper">
+                        <div class="input-with-validator input-with-validator--error">
+                          <input type="text" placeholder="" maxlength="255" value="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="same-type-form">
+                  <div class="user-email-name user-same-name">
+                    <div class="user-email-name-label">
+                      <label>Email</label>
+                    </div>
+                    <div class="user-email-name-btn">
+                      <button>Thêm</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="same-type-form">
+                  <div class="user-phone-name user-same-name">
+                    <div class="user-phone-name-label">
+                      <label>Số Điện Thoại</label>
+                    </div>
+                    <div class="user-phone-name-all">
+                      <div>0967134201</div>
+                      <button>Thay đổi</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="same-type-form">
+                  <div class="user-shop-name user-same-name">
+                    <div class="user-shop-name-label">
+                      <label>Tên Shop</label>
+                    </div>
+                    <div class="user-shop-name-input">
+                      <div class="input-with-validator-wrapper">
+                        <div class="input-with-validator">
+                          <input type="text" placeholder="" maxlength="255"
+                                                                value="dan200110">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="same-type-form">
+                  <div class="user-gender user-same-name">
+                    <div class="user-gender-label">
+                      <label>Giới Tính</label>
+                    </div>
+                    <div class="user-gender-radiobutton">
+                      <input type="radio" id="nam" name="gender" value="nam">
+                      <label for="nam">Nam</label><br>
+                      <input type="radio" id="nu" name="gender" value="nu">
+                      <label for="nu">Nữ</label><br>
+                      <input type="radio" id="khac" name="gender" value="khac">
+                      <label for="khac">Khác</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="same-type-form">
+                  <div class="user-date-birth user-same-name">
+                    <div class="user-date-label">
+                      <label>Ngày Sinh</label>
+                    </div>
+                    <div class="user-date-input">
+                      <input type="date" id="birthday" name="birthday">
+                    </div>
+                  </div>
+                </div>
+                <div class="save-foot-form">
+                  <button class="save-foot-form-btn">Lưu</button>
+                </div>
+              </form>
+            </div>
+            <div class="user-upload-img">
+              <div class="user-img-contain">
+                <div class="user-avt-img">
+                  <img src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png"
+                                                alt="">
+                </div>
+                <input type="file" class="input-choose-picture" accept=".jpg,.jpeg,.png">
+                <button class="btn-choose-picture">Chọn Ảnh</button>
+                <div class="user-img-description">
+                  <div>Dung lượng file tối đa 1 MB</div>
+                  <div>Định dạng:.JPEG, .PNG</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- đổi mật khẩu -->
+        <div class="user-brief">
+          <div class="user-my-brief">
+            <h1>Đổi mật khẩu</h1>
+            <span>Đổi mật khẩu để bảo mật tài khoản</span>
+          </div>
+          <div class="user-form-brief">
+            <div class="user-form-brief-text">
+              <form action="">
+                <div class="same-type-form">
+                  <div class="user-input-name user-same-name">
+                    <div class="user-input-name-label">
+                      <label>Mật khẩu hiện tại</label>
+                    </div>
+                    <div class="user-input-name-input">
+                      <div class="input-with-validator-wrapper">
+                        <div class="input-with-validator input-with-validator--error">
+                          <input id="currentPasswordInput" type="password"
+                                                                placeholder="" maxlength="255" value="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="same-type-form">
+                  <div class="user-shop-name user-same-name">
+                    <div class="user-shop-name-label">
+                      <label>Mật Khẩu Mới</label>
+                    </div>
+                    <div class="user-shop-name-input">
+                      <div class="input-with-validator-wrapper">
+                        <div class="input-with-validator">
+                          <input id="newPasswordInput" type="password" placeholder=""
+                                                                maxlength="255" value="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="same-type-form">
+                  <div class="user-shop-name user-same-name">
+                    <div class="user-shop-name-label">
+                      <label>Xác nhận mật khẩu</label>
+                    </div>
+                    <div class="user-shop-name-input">
+                      <div class="input-with-validator-wrapper">
+                        <div class="input-with-validator">
+                          <input id="confirmPasswordInput" type="password"
+                                                                placeholder="" maxlength="255" value="">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="save-foot-form">
+                  <button class="save-foot-form-btn">Xác nhận</button>
+                </div>
+              </form>
+            </div>
+            <div class="user-forgot-password"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

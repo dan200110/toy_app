@@ -99,35 +99,34 @@
           <i class="fa fa-question-circle-o" aria-hidden="true"></i>
           <a href="" class="header__navbar-item-link">Trợ giúp</a>
         </li>
-      <% if logged_in? %>
-        <li class="header__navbar-item header__navbar-user">
-          <img src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png" alt=""
-                                    class="header__navbar-userimg">
-          <span class="header__navbar-userspan">
-            <%= @current_user.name %>
-          </span>
-          <ul class="navbar__user-menu">
-            <li>
-              <a href="/users/<%= current_user.id %>">Tài khoản của tôi</a>
-            </li>
-            <li>
-              <a href="/personalshop/">Cửa hàng của tôi</a>
-            </li>
-            <li>
-              <a href="/cart/">Đơn mua</a>
-            </li>
-            <li>
-              <%= link_to "Đăng xuất", logout_path, method: :delete %>
-            </li>
-          </ul>
-        </li>
+        <% if logged_in? %>
+          <li class="header__navbar-item header__navbar-user">
+            <img src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png" alt="" class="header__navbar-userimg">
+            <span class="header__navbar-userspan">
+              <%= @current_user.name %>
+            </span>
+            <ul class="navbar__user-menu">
+              <li>
+                <a href="<%= edit_user_path(current_user)%>">Tài khoản của tôi</a>
+              </li>
+              <li>
+                <a href="/personalshop/">Cửa hàng của tôi</a>
+              </li>
+              <li>
+                <a href="/cart/">Đơn mua</a>
+              </li>
+              <li>
+                <%= link_to "Đăng xuất", logout_path, method: :delete %>
+              </li>
+            </ul>
+          </li>
         <% else %>
-        <a href="<%= signup_path %>" class="register_link">
-          <li class="header__navbar-item header__navbar-item-register">Đăng Ký</li>
-        </a>
-        <a href="<%= login_path %>" class="login_link">
-          <li class="header__navbar-item header__navbar-item-register">Đăng Nhập</li>
-        </a>
+          <a href="<%=  %>" class="register_link">
+            <li class="header__navbar-item header__navbar-item-register">Đăng Ký</li>
+          </a>
+          <a href="<%= login_path %>" class="login_link">
+            <li class="header__navbar-item header__navbar-item-register">Đăng Nhập</li>
+          </a>
         <% end %>
       </ul>
     </nav>
@@ -151,12 +150,20 @@
       <div class="header__cart">
         <div class="header__cart-wrap">
           <i class="header__cart-icon fa fa-shopping-cart"></i>
-          <span class="header__cart-number">0</span>
+          <span class="header__cart-number"><%= count_carts %></span>
           <div class="header__cart-list no-cart">
             <h4>Sản phẩm đã thêm</h4>
             <ul class="cart__list-item">
+              <%# render list %>
+            </ul>
+            <div class="cart__foot">
+              <a href="<%= carts_path %>">
+                <button class="cart__item-btn">Xem giỏ hàng</button>
+              </a>
+              <%# <button class="cart__item-btn">Xem giỏ hàng</button> %>
             </div>
           </div>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
