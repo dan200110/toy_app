@@ -1,15 +1,15 @@
 class CartsController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :index, :create]
-  before_action :current_carts, except: [:show, :new, :edit]
-  before_action :load_book, only: [:create, :update]
-  before_action :load_books, only: :index
   before_action :init_cart
+  before_action :current_carts, except: [:show, :new, :edit]
+  before_action :load_product, only: [:create, :update]
+  before_action :load_products, only: :index
 
   def index; end
 
   def create
     if check_quantily
-      add_item @book, @quantily
+      add_item @product, @quantily
     else
       flash[:danger] = t ".danger_quantily"
     end
@@ -44,13 +44,9 @@ class CartsController < ApplicationController
 
   private
 
-  def load_books
-    @books = Book.by_ids @carts.keys
-  end
-
-  def load_book
-    @book = Book.find_by id: params[:id]
-    return if @book
+  def load_product
+    @product = Book.find_by id: params[:id]
+    return if @product
     flash[:danger] = t ".danger_book"
     redirect_to carts_path
   end
@@ -60,11 +56,11 @@ class CartsController < ApplicationController
     @quantily <= 50 && @quantily > 0
   end
 
-  def add_item book, quantily
-    if @carts.key? book.id.to_s
+  def add_item product, quantily
+    if @carts.key? product.id.to_s
       flash[:info] = t ".info_book"
     else
-      @carts[book.id.to_s] = quantily
+      @carts[product.id.to_s] = quantily
       user_id = session[:user_id]
       session["cart_#{user_id}"] = @carts
       flash[:success] = t ".success_add"

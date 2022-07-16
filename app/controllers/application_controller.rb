@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
   include CartsHelper
+  before_action :init_cart
+  before_action :load_products
 
   private
 
@@ -12,4 +14,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def load_products
+    @products = Book.by_ids @carts.keys
+  end
 end
