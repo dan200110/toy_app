@@ -1,7 +1,7 @@
-<% Book.all.each do |book| %>
+<% @books.each do |book| %>
   <div class="grid-column-new2">
-    <a href="/books/<%= book.id%>" class="home-product-item">
-      <div class="product-item-img" style="background-image: url(<%= book.product_photo %>);"></div>
+    <a href="<%= current_book %>" class="home-product-item">
+      <div class="product-item-img" style="background-image: url(http://300b5338.vws.vegacdn.vn/image/img.news/0/0/0/275.jpg?v=1&w=628&h=365&nocache=1);"></div>
       <h4 class="product-item-name">
         <%= book.name %>
       </h4>

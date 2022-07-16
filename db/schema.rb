@@ -29,13 +29,13 @@ ActiveRecord::Schema.define(version: 2022_07_10_022624) do
   end
 
   create_table "books", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "category_id", null: false
     t.string "name"
-    t.text "description"
     t.decimal "price", precision: 10
+    t.integer "quantity"
+    t.text "description"
     t.datetime "publish_year"
     t.string "pushlish_name"
-    t.integer "quantity"
-    t.bigint "category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["category_id"], name: "index_books_on_category_id"

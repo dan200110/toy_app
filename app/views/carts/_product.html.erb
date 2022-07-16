@@ -1,0 +1,29 @@
+<div class="body-main-product">
+  <div class="main-product-imgandtext">
+    <div class="product-imgandtext-img">
+      <img src="" alt="">
+    </div>
+    <div class="product-imgandtext-text">
+      <span><%= product.name%></span>
+      <span>Ma: <%= product.id%></span>
+    </div>
+  </div>
+  <div class="main-product-seemore">
+    <button class="product-seemore-btn">Xem chi tiet &gt;&gt;</button>
+  </div>
+  <div class="main-product-price">
+    <div class="product-price-old"><%= product.price %></div>
+    <div class="product-price-current"><%= product.price %></div>
+  </div>
+  <div class="main-product-number">
+    <label for="">So luong: </label>
+    <input type="number" id="soluong" name="soluong" min="1" max="100" value="<%=current_carts["#{product.id}"] %>">
+  </div>
+  <div class="main-product-allprice">
+    <span><%= total_price_book(product.id) %></span>
+  </div>
+  <div class="main-product-delete">
+    <button class="product-delete-btn">Xoa san pham</button>
+  </div>
+</div>
+<div class="_2aRlry"></div>
