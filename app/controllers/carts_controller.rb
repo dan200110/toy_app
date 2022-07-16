@@ -1,7 +1,7 @@
 class CartsController < ApplicationController
   before_action :logged_in_user, only: [:edit, :update, :index, :create]
   before_action :init_cart
-  before_action :current_carts, except: [:show, :new, :edit]
+  before_action :current_carts, except: [:show, :new, :edit, :destroy]
   before_action :load_product, only: [:create, :update]
   before_action :load_products, only: :index
 
@@ -20,6 +20,7 @@ class CartsController < ApplicationController
     if @carts.key? params[:id]
       if check_quantily
         @carts[params[:id]] = @quantily
+        user_id = session[:user_id]
         session["cart_#{user_id}"] = @carts
         flash[:success] = t ".success_update"
       else
@@ -35,7 +36,8 @@ class CartsController < ApplicationController
     if @carts.key? params[:id]
       @carts.delete params[:id]
       flash[:success] = t ".success_delete"
-      session[:carts] = @carts
+      user_id = session[:user_id]
+      session["cart_#{user_id}"] = @carts
     else
       flash[:danger] = t ".danger_delete"
     end
