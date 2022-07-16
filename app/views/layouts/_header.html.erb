@@ -152,16 +152,22 @@
           <i class="header__cart-icon fa fa-shopping-cart"></i>
           <span class="header__cart-number"><%= count_carts %></span>
           <div class="header__cart-list no-cart">
-            <h4>Sản phẩm đã thêm</h4>
-            <ul class="cart__list-item">
-              <%# render list %>
-            </ul>
-            <div class="cart__foot">
-              <a href="<%= carts_path %>">
-                <button class="cart__item-btn">Xem giỏ hàng</button>
-              </a>
-              <%# <button class="cart__item-btn">Xem giỏ hàng</button> %>
-            </div>
+            <% if count_carts == 0 %>
+              <%= image_tag("no-cart.png", class: "no__cart-img") %>
+              <p>Chưa có sản phẩm</p>
+            <% else %>
+              <h4>Sản phẩm đã thêm</h4>
+              <ul class="cart__list-item">
+                <%# render list %>
+                <%= render partial: "shared/product", collection: @products %>
+              </ul>
+              <div class="cart__foot">
+                <a href="<%= carts_path %>">
+                  <button class="cart__item-btn">Xem giỏ hàng</button>
+                </a>
+                <%# <button class="cart__item-btn">Xem giỏ hàng</button> %>
+              </div>
+            <% end %>
           </div>
         </div>
       </div>

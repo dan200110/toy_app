@@ -1,0 +1,12 @@
+<li class="cart__item">
+  <img src="/image/Book-PNG-2.png" alt="" class="cart__list-img">
+  <div class="card__item-head">
+    <h5><%= product.name %>
+    </h5>
+    <div class="cart__item-allprice">
+      <span class="cart__item-price"><%= product.price %></span>
+      <span class="cart__item-multiply">x</span>
+      <span class="cart__item-quantity"><%=current_carts["#{product.id}"] %></span>
+    </div>
+  </div>
+</li>

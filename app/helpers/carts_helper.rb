@@ -4,15 +4,15 @@ module CartsHelper
   end
 
   def total_price
-    books = Book.by_ids current_carts.keys
-    books.reduce(0) do |total, book|
-      total + book.price * @carts[book.id.to_s].to_i
+    products = Book.by_ids current_carts.keys
+    products.reduce(0) do |total, product|
+      total + product.price * @carts[product.id.to_s].to_i
     end
   end
 
   def total_price_book id
-    if book = Book.find_by(id: id)
-      number_to_currency (current_carts[id.to_s].to_i * book.price),
+    if product = Book.find_by(id: id)
+      number_to_currency (current_carts[id.to_s].to_i * product.price),
         locale: :en
     else
       flash[:danger] = I18n.t ".carts.danger_book"

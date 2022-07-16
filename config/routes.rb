@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   post '/login', to: "sessions#create"
   delete "/logout", to: "sessions#destroy"
   post '/add_to_cart/:id', to: 'carts#add_to_cart', as: 'add_to_cart'
-  delete '/remove_from_cart/:id', to: 'books#remove_from_cart', as: 'remove_from_cart'
+  delete '/remove_from_cart/:id', to: 'carts#remove_from_cart', as: 'remove_from_cart'
 
   get '/carts', to: "carts#index"
   resources :users do

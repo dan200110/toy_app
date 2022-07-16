@@ -1,5 +1,4 @@
 class StaticPagesController < ApplicationController
-  # before_action :load_cart
 
   def home
     @books = Book.all.latest_book
