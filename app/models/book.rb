@@ -15,4 +15,5 @@ class Book < ApplicationRecord
     if amountofcomments == 0 then amountofcomments = 1 end
     rating = (rating / amountofcomments).round(1)
   end
+  scope :search, ->(key){where("name LIKE ? or description LIKE ?", "%#{key}%", "%#{key}%")}
 end
