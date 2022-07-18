@@ -51,7 +51,7 @@ module CartsHelper
     user_id = session[:user_id]
     return unless session["cart_#{user_id}"] ||= {}.present?
     session["cart_#{user_id}"] ||= {}.each do |key, _value|
-      session["cart_#{user_id}"] ||= {}.delete key unless Book.find_by id: key
+      session["cart_#{user_id}"].delete key unless Book.find_by id: key
     end
   end
 

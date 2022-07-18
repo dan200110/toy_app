@@ -17,7 +17,7 @@
   </div>
   <div class="main-product-number">
     <label for="">So luong: </label>
-    <%= form_with url: cart_path(id: product.id), method: :put, remote: true do |f| %>
+    <%= form_with url: cart_path(id: product.id), method: :put, local: true do |f| %>
       <%= f.number_field :quantily, value: current_carts["#{product.id}"],
         max: product.quantity, min: 0, class: "form-control" %>
     </div>

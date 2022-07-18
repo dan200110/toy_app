@@ -29,10 +29,7 @@ class CartsController < ApplicationController
     else
       flash[:danger] = t ".danger_update"
     end
-    respond_to do |format|
-      format.html{redirect_to carts_path}
-      format.js
-    end
+    redirect_to carts_path
   end
 
   def destroy

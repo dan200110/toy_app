@@ -101,7 +101,8 @@
         </li>
         <% if logged_in? %>
           <li class="header__navbar-item header__navbar-user">
-            <img src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png" alt="" class="header__navbar-userimg">
+          <%= avatar_image(@current_user.avatar, "header__navbar-userimg") %>
+            <%# <img src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png" alt="" class="header__navbar-userimg"> %>
             <span class="header__navbar-userspan">
               <%= @current_user.name %>
             </span>
