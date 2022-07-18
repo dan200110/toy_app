@@ -1,8 +1,10 @@
 class Book < ApplicationRecord
+  has_many :comments, dependent: :destroy
+
   scope :price_desc, ->{order(price: :desc)}
   scope :latest_book, ->{order(created_at: :desc)}
   scope :by_ids, ->(ids){where id: ids}
-
+  
   def getRating
     rating = 0
     amountofcomments = 0

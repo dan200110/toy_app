@@ -8,4 +8,8 @@ module BooksHelper
                 end
     render :home
   end
+
+  def current_book
+    @current_book ||= Book.find_by(id: book_id)
+  end
 end

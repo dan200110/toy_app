@@ -28,4 +28,5 @@ Rails.application.routes.draw do
     end
   end
   get "/search", to: "static_pages#search"
+  resources :comments, only: [:create, :destroy]
 end
