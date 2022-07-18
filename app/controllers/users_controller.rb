@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   before_action :logged_in_user, only: [:edit, :update]
+  before_action :correct_user
   attr_accessor :name, :email
 
   # GET /users or /users.json
@@ -34,7 +35,15 @@ class UsersController < ApplicationController
     end
   end
   # PATCH/PUT /users/1 or /users/1.json
-  def update; end
+  def update
+    if @user.update user_params
+      flash[:success] = t ".update_success"
+      redirect_to edit_user_path current_user
+    else
+      flash[:danger] = t ".update_faild"
+      redirect_to edit_user_path current_user
+    end
+  end
 
   # DELETE /users/1 or /users/1.json
   def destroy; end
@@ -45,6 +54,12 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.permit User::UPDATABLE_ATTRS
+  end
+  def correct_user
+    return if current_user? @user
+
+    flash[:danger] = t "flash.login_plz"
+    redirect_to root_path
   end
 end

@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include CartsHelper
   include BooksHelper
-  
+  include UsersHelper
   before_action :init_cart
   before_action :load_products
 
