@@ -1,0 +1,17 @@
+
+<div>
+  <div class="box">
+    <div class="box" style="float:left">
+      <img src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png" alt=""
+                                        style="height:30px;width:30px">
+    </div>
+    <div class="box" style="margin-left: 40px">
+      <h5><%= comment.user.name %></h5>
+    </div>
+  </div>
+  <div class="box" style="padding-left:40px;width:50%">
+    <h6>posted <%= time_ago_in_words comment.created_at %> ago</h6>
+    <p><%= comment.content %></p>
+    <%= image_tag comment.image, class: "comment-image" if comment.image.attached? %>
+  </div>
+</div>

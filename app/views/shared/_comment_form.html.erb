@@ -1,0 +1,13 @@
+<% if logged_in? %>
+  <%= form_for(@comment) do |f| %>
+    <div class="field">
+      <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+    </div>
+    <%= f.hidden_field :book_id, value: params[:id] %>
+    <%= f.select :num_star, [ 0, 1, 2, 3, 4, 5 ]%>
+    <%= f.submit "Post", class: "btn btn-primary" %>
+    <span class="image">
+      <%= f.file_field :image, accept: "image/jpeg,image/gif,image/png" %>
+    </span>
+  <% end %>
+<% end %>

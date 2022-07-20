@@ -27,4 +27,6 @@ Rails.application.routes.draw do
       get :buy
     end
   end
+  get "/search", to: "static_pages#search"
+  resources :comments, only: [:create, :destroy]
 end
