@@ -1,0 +1,14 @@
+<%= form_with url: cart_path(id: product.id), method: :put, remote: true do |f| %>
+  <%= f.number_field :quantily, value: current_carts["#{product.id}"],max: product.quantity, min: 0, class: "form-control" %>
+</div>
+<div class="main-product-allprice">
+  <span><%= total_price_book(product.id) %></span>
+</div>
+<div class="main-product-delete">
+  <%= link_to cart_path(id: product.id), method: :delete, data: {confirm: t(".confirm_delete")} do %>
+    <button class="product-delete-btn">Xoa</button>
+  <% end %>
+  <%= f.button type: :submit, class: "btn btn-info" do %>
+    <% content_tag(:span, nil, class: "glyphicon glyphicon-refresh") %>
+  <% end %>
+<% end %>
