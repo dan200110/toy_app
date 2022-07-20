@@ -101,7 +101,8 @@
         </li>
         <% if logged_in? %>
           <li class="header__navbar-item header__navbar-user">
-            <img src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png" alt="" class="header__navbar-userimg">
+          <%= avatar_image(@current_user.avatar, "header__navbar-userimg") %>
+            <%# <img src="https://iupac.org/wp-content/uploads/2018/05/default-avatar.png" alt="" class="header__navbar-userimg"> %>
             <span class="header__navbar-userspan">
               <%= @current_user.name %>
             </span>
@@ -138,14 +139,21 @@
         </a>
       </div>
       <div class="header__search">
-        <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm">
-        <div class="header__search-select">
-          <span>tim kiem  </span>
-          <i class="fa fa-angle-down" aria-hidden="true"></i>
-        </div>
-        <button class="header__search-btn">
-          <i class="fa fa-search" aria-hidden="true"></i>
-        </button>
+        <%= form_tag search_path, class: "header__search", method: :GET do %>
+          <%= text_field_tag :search_text, params[:search_text], placeholder: "Nhập để tìm kiếm sản phẩm",
+                  class: "header__search-input" %>
+          <%# <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm"> %>
+          <div class="header__search-select">
+            <span>tim kiem  </span>
+            <i class="fa fa-angle-down" aria-hidden="true"></i>
+          </div>
+          <%= button_tag :submit, class: "header__search-btn" do %>
+            <i class="fa fa-search" aria-hidden="true"></i>
+          <% end %>
+          <%# <button class="header__search-btn">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </button> %>
+        <% end %>
       </div>
       <div class="header__cart">
         <div class="header__cart-wrap">

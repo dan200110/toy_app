@@ -1,7 +1,7 @@
 class StaticPagesController < ApplicationController
 
   def home
-    @books = Book.all.latest_book
+    @books = Book.search(params[:search])
   end
 
   def help; end
@@ -10,6 +10,6 @@ class StaticPagesController < ApplicationController
 
   private
   def price_desc
-    @books = Book.all.price_desc
+    @books = Book.search(params[:search])
   end
 end

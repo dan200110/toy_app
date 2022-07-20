@@ -1,0 +1,28 @@
+user:
+  email:
+    max_length: 255
+  email_regex: !ruby/regexp '/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i'
+  name:
+    max_length: 50
+  password:
+    min_length: 6
+  image:
+    image_path: ["image/jpeg", "image/gif", "image/png"]
+report:
+  column:
+    max_length: 255
+form:
+  create_form:
+    num_row: 4
+    num_row_comment: 5
+reports:
+  report:
+    format_datetime: "%d/%m/%Y %H:%M"
+    format_date: "%d/%m/%Y"
+comment:
+  max_length: 500
+image:
+  default_avatar: "default-avatar.png"
+paginate:
+  items:
+    item_per_page: 5
